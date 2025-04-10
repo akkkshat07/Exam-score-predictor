@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Score Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Student Exam Score Predictor</h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="#about-section">About</a></li>
+                    <li><a href="#prediction-section">Predictor</a></li>
+                    <li><a href="/about">Learn More</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Predict Academic Success with AI</h2>
+                    <p>Using machine learning to forecast student performance in math, reading, and writing exams.</p>
+                    <a href="#prediction-section" class="btn btn-primary">Try the Predictor</a>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='img/main.png') }}" alt="Education Illustration">
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about-section" class="info-section">
+                <h2>What is the Student Exam Score Predictor?</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📊</div>
+                        <h3>AI-Powered Predictions</h3>
+                        <p>Our application uses advanced machine learning models trained on educational data to predict how a student might perform on standardized tests.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🔍</div>
+                        <h3>Multiple Factors Analyzed</h3>
+                        <p>We consider over 10 different factors including demographics, study habits, family background, and preparation to make accurate predictions.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💡</div>
+                        <h3>Personalized Insights</h3>
+                        <p>Get tailored recommendations based on predicted performance to help improve academic outcomes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Enter Student Information</h3>
+                        <p>Provide details about the student's background, study habits, and family environment.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis</h3>
+                        <p>Our machine learning models analyze the data to identify patterns related to academic performance.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Get Predictions</h3>
+                        <p>Receive predicted scores for math, reading, and writing exams along with a performance assessment.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Actionable Recommendations</h3>
+                        <p>Review personalized suggestions to improve academic outcomes based on the predictions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Factors -->
+            <section class="key-factors">
+                <h2>Key Factors Affecting Student Performance</h2>
+                <div class="factors">
+                    <div class="factor">
+                        <h3>Parent Education</h3>
+                        <div class="factor-bar">
+                            <div class="factor-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="factor">
+                        <h3>Test Preparation</h3>
+                        <div class="factor-bar">
+                            <div class="factor-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="factor">
+                        <h3>Weekly Study Hours</h3>
+                        <div class="factor-bar">
+                            <div class="factor-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="factor">
+                        <h3>Socioeconomic Indicators</h3>
+                        <div class="factor-bar">
+                            <div class="factor-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Predictor Section -->
+            <section id="prediction-section" class="card">
+                <h2>Enter Student Information</h2>
+                <p>Fill in the form below to predict exam scores based on various factors.</p>
+                
+                <form id="prediction-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ethnicGroup">Ethnic Group</label>
+                            <select id="ethnicGroup" name="ethnicGroup" required>
+                                <option value="">Select Ethnic Group</option>
+                                <option value="group A">Group A</option>
+                                <option value="group B">Group B</option>
+                                <option value="group C">Group C</option>
+                                <option value="group D">Group D</option>
+                                <option value="group E">Group E</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentEduc">Parent Education</label>
+                            <select id="parentEduc" name="parentEduc" required>
+                                <option value="">Select Parent Education</option>
+                                <option value="some high school">Some High School</option>
+                                <option value="high school">High School</option>
+                                <option value="some college">Some College</option>
+                                <option value="associate's degree">Associate's Degree</option>
+                                <option value="bachelor's degree">Bachelor's Degree</option>
+                                <option value="master's degree">Master's Degree</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lunchType">Lunch Type</label>
+                            <select id="lunchType" name="lunchType" required>
+                                <option value="">Select Lunch Type</option>
+                                <option value="standard">Standard</option>
+                                <option value="free/reduced">Free/Reduced</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="testPrep">Test Preparation</label>
+                            <select id="testPrep" name="testPrep" required>
+                                <option value="">Select Test Preparation</option>
+                                <option value="none">None</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="parentMaritalStatus">Parent Marital Status</label>
+                            <select id="parentMaritalStatus" name="parentMaritalStatus" required>
+                                <option value="">Select Marital Status</option>
+                                <option value="married">Married</option>
+                                <option value="single">Single</option>
+                                <option value="divorced">Divorced</option>
+                                <option value="widowed">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="practiceSport">Practice Sport</label>
+                            <select id="practiceSport" name="practiceSport" required>
+                                <option value="">Select Sport Practice</option>
+                                <option value="regularly">Regularly</option>
+                                <option value="sometimes">Sometimes</option>
+                                <option value="never">Never</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="isFirstChild">Is First Child</label>
+                            <select id="isFirstChild" name="isFirstChild" required>
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nrSiblings">Number of Siblings</label>
+                            <input type="number" id="nrSiblings" name="nrSiblings" min="0" max="10" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="transportMeans">Transport Means</label>
+                            <select id="transportMeans" name="transportMeans" required>
+                                <option value="">Select Transport</option>
+                                <option value="school_bus">School Bus</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="wklyStudyHours">Weekly Study Hours</label>
+                            <select id="wklyStudyHours" name="wklyStudyHours" required>
+                                <option value="">Select Study Hours</option>
+                                <option value="< 5">Less than 5 hours</option>
+                                <option value="5 - 10">5 to 10 hours</option>
+                                <option value="> 10">More than 10 hours</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Predict Scores</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </section>
+            
+            <div class="card results-card" id="results-section" style="display: none;">
+                <h2>Predicted Scores</h2>
+                <div class="results-container">
+                    <div class="scores-container">
+                        <div class="score-item">
+                            <div class="score-label">Math</div>
+                            <div class="score-value" id="math-score">-</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Reading</div>
+                            <div class="score-value" id="reading-score">-</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Writing</div>
+                            <div class="score-value" id="writing-score">-</div>
+                        </div>
+                        <div class="score-item average">
+                            <div class="score-label">Average</div>
+                            <div class="score-value" id="avg-score">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="performance-container">
+                        <h3>Performance Level</h3>
+                        <div class="performance-level" id="performance-level">-</div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="scores-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="recommendations" id="recommendations">
+                    <h3>Recommendations</h3>
+                    <ul id="recommendations-list">
+                        <!-- Recommendations will be added dynamically -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">How should I use these predictions?</div>
+                        <div class="faq-answer">The predictions should be used as one of many tools in educational assessment, not as the sole determinant. Combine them with teacher evaluations and other assessment methods.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is my data secure?</div>
+                        <div class="faq-answer">Yes, this application processes all data locally in your browser. No personal information is stored or shared.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What factors have the biggest impact on scores?</div>
+                        <div class="faq-answer">Our analysis shows that parent education level, test preparation, weekly study hours, and socioeconomic indicators have the strongest correlation with exam performance.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I use this for actual educational planning?</div>
+                        <div class="faq-answer">This tool is designed to provide insights and suggestions, but should be used alongside professional educational guidance and assessment.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Student Exam Score Predictor</h3>
+                    <p>An AI-powered tool to predict academic performance and provide personalized recommendations.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about-section">About</a></li>
+                        <li><a href="#prediction-section">Predictor</a></li>
+                        <li><a href="/about">Learn More</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Student Exam Score Predictor | Developed with ❤️ and AI</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const parent = question.parentElement;
+                    parent.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Prediction form functionality
+            const form = document.getElementById('prediction-form');
+            const resultsSection = document.getElementById('results-section');
+            let scoresChart = null;
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Predicting...';
+                submitBtn.disabled = true;
+                
+                // Create form data
+                const formData = new FormData(form);
+                
+                // Send prediction request
+                fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Something went wrong');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update the results section
+                    document.getElementById('math-score').textContent = data.math_score;
+                    document.getElementById('reading-score').textContent = data.reading_score;
+                    document.getElementById('writing-score').textContent = data.writing_score;
+                    document.getElementById('avg-score').textContent = data.avg_score;
+                    document.getElementById('performance-level').textContent = data.performance;
+                    
+                    // Set performance level color
+                    const performanceLevel = document.getElementById('performance-level');
+                    performanceLevel.className = 'performance-level';
+                    
+                    if (data.performance === 'Excellent') {
+                        performanceLevel.classList.add('excellent');
+                    } else if (data.performance === 'Very Good') {
+                        performanceLevel.classList.add('very-good');
+                    } else if (data.performance === 'Good') {
+                        performanceLevel.classList.add('good');
+                    } else if (data.performance === 'Satisfactory') {
+                        performanceLevel.classList.add('satisfactory');
+                    } else if (data.performance === 'Needs Improvement') {
+                        performanceLevel.classList.add('needs-improvement');
+                    } else {
+                        performanceLevel.classList.add('unsatisfactory');
+                    }
+                    
+                    // Generate recommendations
+                    generateRecommendations(data);
+                    
+                    // Update the chart
+                    updateChart(data);
+                    
+                    // Show results section
+                    resultsSection.style.display = 'block';
+                    
+                    // Scroll to results
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+                })
+                .catch(error => {
+                    alert('Error: ' + error.message);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
+            });
+            
+            function updateChart(data) {
+                const ctx = document.getElementById('scores-chart').getContext('2d');
+                
+                // Destroy existing chart if it exists
+                if (scoresChart) {
+                    scoresChart.destroy();
+                }
+                
+                // Create new chart
+                scoresChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Math', 'Reading', 'Writing', 'Average'],
+                        datasets: [{
+                            label: 'Scores',
+                            data: [
+                                data.math_score,
+                                data.reading_score,
+                                data.writing_score,
+                                data.avg_score
+                            ],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Predicted Exam Scores'
+                            }
+                        }
+                    }
+                });
+            }
+            
+            function generateRecommendations(data) {
+                const recommendationsList = document.getElementById('recommendations-list');
+                recommendationsList.innerHTML = '';
+                
+                // General recommendations based on scores
+                let recommendations = [];
+                
+                // Math-specific recommendations
+                if (data.math_score < 60) {
+                    recommendations.push('Consider additional math tutoring or study groups to improve mathematical skills.');
+                }
+                
+                // Reading-specific recommendations
+                if (data.reading_score < 60) {
+                    recommendations.push('Establish a regular reading routine to improve comprehension and vocabulary.');
+                }
+                
+                // Writing-specific recommendations
+                if (data.writing_score < 60) {
+                    recommendations.push('Practice writing essays and get feedback from teachers or tutors to improve writing skills.');
+                }
+                
+                // Test preparation recommendations
+                const testPrep = document.getElementById('testPrep').value;
+                if (testPrep === 'none') {
+                    recommendations.push('Completing a test preparation course could significantly improve your scores.');
+                }
+                
+                // Study hours recommendations
+                const studyHours = document.getElementById('wklyStudyHours').value;
+                if (studyHours === '< 5') {
+                    recommendations.push('Increasing weekly study hours to at least 5-10 hours could lead to better performance.');
+                }
+                
+                // Add general recommendation if scores are good
+                if (data.avg_score >= 70) {
+                    recommendations.push('Your predicted scores show good performance! Continue with your current study habits.');
+                }
+                
+                // If no specific recommendations were generated
+                if (recommendations.length === 0) {
+                    recommendations.push('Based on the predicted scores, focus on maintaining balanced study habits across all subjects.');
+                }
+                
+                // Add recommendations to the list
+                recommendations.forEach(recommendation => {
+                    const li = document.createElement('li');
+                    li.textContent = recommendation;
+                    recommendationsList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

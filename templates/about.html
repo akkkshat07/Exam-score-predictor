@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Student Exam Score Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Student Exam Score Predictor</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about" class="active">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="card">
+                <h2>About this Project</h2>
+                <div class="about-content">
+                    <div class="about-section">
+                        <h3>Project Overview</h3>
+                        <p>The Student Exam Score Predictor is an advanced machine learning application designed to forecast student performance in standardized tests based on a variety of demographic, family, and behavioral factors.</p>
+                        
+                        <p>This project uses AI and data analytics to help educators, parents, and students understand the factors that influence academic performance and provide targeted recommendations for improvement.</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Our Machine Learning Models</h3>
+                        <p>We utilize several state-of-the-art machine learning algorithms to achieve the highest possible prediction accuracy:</p>
+                        <ul>
+                            <li><strong>Linear Models:</strong> Ridge and Lasso regression for baseline predictions</li>
+                            <li><strong>Ensemble Methods:</strong> Random Forest and Gradient Boosting for capturing complex relationships</li>
+                            <li><strong>Advanced Models:</strong> XGBoost and LightGBM for optimized performance</li>
+                        </ul>
+                        <p>Our models achieve an R² score of 70-80%, indicating high predictive accuracy.</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Data and Features</h3>
+                        <p>The prediction models analyze these key factors:</p>
+                        <ul>
+                            <li>Demographic information (gender, ethnic group)</li>
+                            <li>Family background (parent education, marital status)</li>
+                            <li>Socioeconomic indicators (lunch type)</li>
+                            <li>Study habits (weekly study hours)</li>
+                            <li>Test preparation</li>
+                            <li>Extracurricular activities (sports participation)</li>
+                            <li>Family structure (siblings, birth order)</li>
+                            <li>Logistical factors (transportation method)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Technical Implementation</h3>
+                        <p>This application is built using:</p>
+                        <ul>
+                            <li><strong>Backend:</strong> Python with Flask for the web framework</li>
+                            <li><strong>Machine Learning:</strong> Scikit-learn, XGBoost, and LightGBM libraries</li>
+                            <li><strong>Data Processing:</strong> Pandas and NumPy</li>
+                            <li><strong>Frontend:</strong> HTML, CSS, and JavaScript</li>
+                            <li><strong>Visualization:</strong> Chart.js for interactive data visualization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Educational Significance</h3>
+                        <p>This tool can be valuable for:</p>
+                        <ul>
+                            <li><strong>Students:</strong> Understanding factors affecting their performance and receiving targeted advice</li>
+                            <li><strong>Parents:</strong> Gaining insights into how various factors influence their child's academic outcomes</li>
+                            <li><strong>Educators:</strong> Identifying at-risk students and providing personalized support</li>
+                            <li><strong>Educational Researchers:</strong> Exploring the relationships between various factors and academic achievement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Ethical Considerations</h3>
+                        <p>We recognize the importance of using AI models responsibly in educational contexts:</p>
+                        <ul>
+                            <li>Our predictions should be used as one of many tools in educational assessment, not as the sole determinant</li>
+                            <li>We process all data locally to maintain privacy</li>
+                            <li>Our tool is designed to support, not replace, human judgment in educational decisions</li>
+                            <li>We continuously evaluate our models for potential biases</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Future Developments</h3>
+                        <p>We plan to enhance this tool with:</p>
+                        <ul>
+                            <li>More detailed and personalized recommendations</li>
+                            <li>Additional visualization options for deeper insights</li>
+                            <li>Integration with educational management systems</li>
+                            <li>Expanded predictive capabilities for different types of assessments</li>
+                            <li>Mobile application for increased accessibility</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="back-button">
+                    <a href="/" class="btn btn-primary">Back to Home</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Student Exam Score Predictor</h3>
+                    <p>An AI-powered tool to predict academic performance and provide personalized recommendations.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Student Exam Score Predictor | Developed with ❤️ and AI</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
